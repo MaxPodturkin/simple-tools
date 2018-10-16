@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Simple tools</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+body {
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+.tab button {
+    color: #555;
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    color: #00008b;
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+    </style>
+</head>
+<body>
+
+<h1>Simple tools</h1>
+<p>There are simple tools created by me. </p>
+
+<!-- Tab links -->
+<div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'Calculator')" id="defaultOpen">Calculator</button>
+    <button class="tablinks" onclick="openTab(event, 'Organizer')">Organizer</button>
+</div>
+
+<!-- Tab content -->
+<div id="Calculator" class="tabcontent">
+    <h3>Calculator</h3>
+    <p>Simple calculator with memory and Undo</p>
+</div>
+
+<div id="Organizer" class="tabcontent">
+    <h3>Organizer</h3>
+    <p>Empty content</p>
+</div>
+<script>
+function openTab(event, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    event.currentTarget.className += " active";
+}
+document.getElementById("defaultOpen").click();
+</script>
+</body>
+</html>
